@@ -1,0 +1,1186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Introductions</title>
+<meta name="theme-color" content="#f4f6f6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6f6;--card:#fff;--line:#dce2e4;
+  --ink:#16262b;--mut:#56676d;--dim:#8a979c;
+  --tea:#0e7c7a;--tea2:#3aa6a2;--teabg:#e2f0ef;
+  --rst:#c0573e;--rstbg:#fbe9e4;--gold:#ffc25c;--brn:#8a6238;--goldbg:#fdf1dc;
+  --serif:"Source Serif 4",Georgia,serif;--sans:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;background:#e9eeee;padding-bottom:110px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+
+#bg{position:fixed;inset:0;overflow:hidden;z-index:-1;background:radial-gradient(120% 90% at 50% 120%,#d9ecea 0%,#eef2f2 55%,#f5f7f7 100%)}
+#bg i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+#bg .b1{width:62vw;height:62vw;left:-14vw;top:-26vw;background:radial-gradient(circle,#bfe3df,transparent 68%);animation:drift1 26s ease-in-out infinite alternate}
+#bg .b2{width:52vw;height:52vw;right:-16vw;bottom:-24vw;background:radial-gradient(circle,#9fd5cf,transparent 66%);animation:drift2 32s ease-in-out infinite alternate}
+@keyframes drift1{to{margin-left:5vw;margin-top:4vh}}
+@keyframes drift2{to{margin-right:6vw;margin-bottom:-5vh}}
+
+.glass{background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.7));border:1px solid rgba(255,255,255,.95);
+  -webkit-backdrop-filter:blur(18px) saturate(1.3);backdrop-filter:blur(18px) saturate(1.3);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 0 0 1px rgba(14,90,88,.07),0 2px 4px rgba(14,60,62,.04),0 24px 48px -28px rgba(14,60,62,.32)}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(244,246,246,.82);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border-bottom:1px solid var(--line)}
+.bar{max-width:900px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;margin-right:auto;min-width:0}
+.mark{width:38px;height:38px;flex:none;border-radius:11px;background:linear-gradient(150deg,var(--tea2),var(--tea));display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-weight:600;color:#fff;font-size:21px;box-shadow:0 10px 20px -10px rgba(14,124,122,.7)}
+.brand h1{margin:0;font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:-.01em;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand h1 em{font-style:italic;font-weight:500;color:var(--tea)}
+.brand .sub{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tea);margin-bottom:4px}
+.hdr-tools{display:flex;gap:8px;align-items:center}
+.hdr-tools select{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:10px;padding:8px 10px;max-width:190px}
+.btn{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-size:14px;font-weight:600;color:var(--ink);transition:border-color .2s,background .2s,transform .1s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn:hover{border-color:var(--tea2)}
+.btn:active{transform:scale(.97)}
+.btn.teal{background:var(--tea);border-color:var(--tea);color:#fff}
+.btn.teal:hover{background:#0b6f6d}
+.btn.small{padding:7px 11px;font-size:13px}
+.btn.done{background:var(--teabg);border-color:#c5e2df;color:var(--tea)}
+.btn[disabled]{opacity:.45;pointer-events:none}
+
+/* stepper */
+.steps{max-width:900px;margin:0 auto;padding:0 16px 10px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.steps::-webkit-scrollbar{display:none}
+.st{flex:none;display:flex;align-items:center;gap:7px;border:1px solid var(--line);background:rgba(255,255,255,.75);border-radius:99px;padding:5px 11px 5px 5px;font-size:12.5px;font-weight:600;color:var(--mut)}
+.st b{width:22px;height:22px;border-radius:99px;display:grid;place-items:center;background:#e6ecec;color:var(--mut);font-size:11.5px}
+.st.ok b{background:var(--tea);color:#fff}
+.st.now{border-color:var(--tea);color:var(--ink);box-shadow:0 0 0 3px var(--teabg)}
+.st.now b{background:var(--ink);color:#fff}
+.st.lock{opacity:.5;cursor:not-allowed}
+
+main{max-width:900px;margin:0 auto;padding:20px 16px 40px}
+.card{border-radius:20px;padding:20px;margin-bottom:16px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tea);margin:0 0 6px}
+.eyebrow.gold{color:var(--brn)}
+h2{margin:0 0 6px;font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:-.01em;line-height:1.1}
+h2 em{font-style:italic;font-weight:500;color:var(--tea)}
+h3{margin:0 0 10px;font-size:15px;font-weight:700}
+.lead{color:var(--mut);font-size:15px;line-height:1.5;margin:0 0 4px}
+.why{font-size:13px;color:var(--mut);border-left:3px solid var(--gold);padding:2px 0 2px 11px;margin:12px 0 0;line-height:1.45}
+
+/* say this box */
+.say{border-radius:18px;padding:18px 20px;margin:0 0 12px;background:linear-gradient(160deg,rgba(255,255,255,.95),rgba(226,242,240,.85));box-shadow:0 0 0 1.5px var(--tea),0 24px 48px -28px rgba(14,124,122,.5)}
+.say small{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tea);font-weight:700;margin-bottom:6px}
+.say p{margin:0 0 10px;font-family:var(--serif);font-size:20px;line-height:1.35;font-weight:500}
+.say p:last-child{margin-bottom:0}
+.say.gold{background:linear-gradient(160deg,rgba(255,255,255,.95),rgba(253,241,220,.9));box-shadow:0 0 0 1.5px var(--gold),0 24px 48px -28px rgba(138,98,56,.45)}
+.say.gold small{color:var(--brn)}
+.beat{display:grid;grid-template-columns:26px 1fr;gap:10px;margin-bottom:12px}
+.beat:last-child{margin-bottom:0}
+.beat i{font-style:normal;width:26px;height:26px;border-radius:99px;background:var(--tea);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center;margin-top:3px}
+.beat p{margin:0}
+.beat .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:2px}
+
+/* check it */
+.check{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1.5px solid var(--line);background:rgba(255,255,255,.9);border-radius:14px;padding:14px 16px;font-size:15.5px;font-weight:650;margin-top:4px}
+.check .box{width:26px;height:26px;flex:none;border-radius:8px;border:2px solid var(--dim);display:grid;place-items:center;color:#fff;font-size:15px}
+.check.on{border-color:var(--tea);background:var(--teabg)}
+.check.on .box{background:var(--tea);border-color:var(--tea)}
+
+/* fields */
+label.f{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:12px 0 5px}
+input.in,textarea.in,select.in{width:100%;background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 12px;outline:none;font-size:16px}
+textarea.in{resize:vertical;min-height:84px;line-height:1.45}
+.in:focus{border-color:var(--tea);box-shadow:0 0 0 3px var(--teabg)}
+.in.miss{border-color:var(--rst);background:#fffaf8}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:99px;padding:7px 12px;font-size:13.5px;font-weight:500;transition:all .15s var(--ease)}
+.chip:hover{border-color:var(--tea2)}
+.chip.on{background:var(--tea);border-color:var(--tea);color:#fff}
+.chips.mm .chip{background:var(--goldbg);border-color:#f3d9a6}
+.chips.mm .chip.on{background:var(--gold);border-color:var(--gold);color:#3d2a10}
+.chip.miss{border-color:var(--rst)}
+
+/* name cards */
+.ncard{border-radius:18px;padding:16px;margin-bottom:12px;position:relative}
+.ncard.ready{box-shadow:0 0 0 1.5px var(--tea2),0 24px 48px -28px rgba(14,124,122,.45)}
+.nhead{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.nnum{width:30px;height:30px;flex:none;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-weight:700;font-size:13px;color:var(--mut)}
+.ncard.ready .nnum{background:var(--tea);border-color:var(--tea);color:#fff}
+.pill{font-size:11.5px;font-weight:700;border-radius:99px;padding:3px 9px;background:var(--rstbg);color:var(--rst);margin-left:auto}
+.pill.ok{background:var(--teabg);color:var(--tea)}
+.x{background:none;border:0;color:var(--dim);font-size:20px;line-height:1;padding:4px 6px}
+.x:hover{color:var(--rst)}
+.soft{font-size:12.5px;color:var(--brn);margin:6px 0 0}
+.add{width:100%;padding:15px;border-radius:16px;border:1.5px dashed var(--tea2);background:rgba(226,240,239,.6);color:var(--tea);font-weight:700;font-size:15px}
+.add:hover{background:var(--teabg)}
+.prompt{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.25;margin:0}
+.ask{margin:10px 0 0;font-size:13px;color:var(--mut)}
+
+/* memory jogger */
+.mocha{border-radius:14px;padding:12px 14px;margin:12px 0 4px;background:var(--goldbg);border:1px solid #f3d9a6}
+.mocha small{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brn);font-weight:700;margin-bottom:8px}
+.mocha ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.mocha li{font-size:14.5px;line-height:1.35;display:flex;align-items:flex-start}
+.mocha li b{display:inline-block;width:22px;height:22px;border-radius:7px;background:var(--gold);color:#3d2a10;font-size:12px;text-align:center;line-height:22px;margin-right:8px;flex:none}
+.jsec{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:0 0 4px;font-size:16px}
+.jsec span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.jsec.two{margin-top:22px}
+.jrow{display:grid;grid-template-columns:1fr 1.25fr;gap:10px 12px;padding:11px 0;border-top:1px solid var(--line);align-items:start}
+.jcol{display:grid;gap:4px}
+.jn{display:flex;align-items:center;gap:6px}
+.jn input.jin{flex:1;min-width:0;margin:0}
+.jtog{flex:none;width:34px;height:34px;border-radius:99px;border:1.5px solid var(--gold);background:var(--goldbg);color:var(--brn);font-size:15px;font-weight:700;display:grid;place-items:center;padding:0}
+.jtog.ok{background:var(--tea);border-color:var(--tea);color:#fff}
+.jtog.on{box-shadow:0 0 0 3px var(--teabg)}
+.jbody{grid-column:1/-1;background:rgba(255,255,255,.97);border:1.5px solid var(--tea2);border-radius:16px;padding:14px 14px 12px}
+.jbhead{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap}
+.jbhead b{font-size:17px}
+.jbody .pill{margin-left:0}
+.mrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.mrow span{background:#fff;border:1px solid #f3d9a6;border-radius:99px;padding:5px 10px;font-size:13px;font-weight:600;color:var(--brn)}
+.jq{margin:0;font-family:var(--serif);font-size:16px;line-height:1.3;font-weight:500}
+input.jin{border:0;border-bottom:1.5px solid var(--line);border-radius:0;background:transparent;padding:6px 2px;font-size:15.5px;margin-bottom:4px}
+input.jin:focus{box-shadow:none;border-bottom-color:var(--tea)}
+input.jin:last-child{margin-bottom:0}
+details.ncard>summary{list-style:none;cursor:pointer;margin:0}
+details.ncard>summary::-webkit-details-marker{display:none}
+details.ncard>summary::after{content:"\25BE";color:var(--mut);font-size:14px;margin-left:4px;transition:transform .2s}
+details.ncard[open]>summary::after{transform:rotate(180deg)}
+.nname{font-weight:700;font-size:16px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nline{font-size:12px;color:var(--mut);white-space:nowrap}
+.nbody{padding-top:8px}
+.nhead .pill{flex:none;white-space:nowrap}
+.nname{flex:1 1 auto}
+@media (max-width:420px){.nline{display:none}}
+
+.cstep{display:flex;align-items:center;gap:8px;margin:18px 0 2px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tea)}
+.cstep i{font-style:normal;width:22px;height:22px;border-radius:99px;background:var(--tea);color:#fff;display:grid;place-items:center;font-size:11.5px;letter-spacing:0}
+.cstep.first{border-top:0;padding-top:0;margin-top:10px}
+.line{font-size:14px;color:var(--ink);background:var(--teabg);border-radius:10px;padding:8px 11px;margin:6px 0 0;line-height:1.45}
+.say .flow{margin:0 0 12px}
+.say .flow:last-child{margin-bottom:0}
+.say .flow .tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:2px}
+.say .flow p{font-size:18px}
+
+details.sx{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.95);margin-top:8px;overflow:hidden}
+details.sx>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 14px}
+details.sx>summary::-webkit-details-marker{display:none}
+details.sx>summary::after{content:"\25BE";margin-left:auto;color:var(--mut)}
+details.sx[open]>summary::after{transform:rotate(180deg)}
+details.sx[open]>summary{border-bottom:1px solid var(--line)}
+details.sx>textarea{margin:10px 14px;width:calc(100% - 28px)}
+details.sx>.acts{margin:0 14px 12px}
+.sxic{flex:none;width:30px;height:30px;border-radius:99px;background:var(--goldbg);color:var(--brn);display:grid;place-items:center;font-size:14px}
+details.sx.call .sxic{background:var(--teabg);color:var(--tea)}
+.sxt{display:grid;gap:1px;min-width:0}
+.sxt b{font-size:15px}
+.sxt small{font-size:12.5px;color:var(--mut)}
+.sxmeta{margin:0 0 8px;font-size:13px;font-weight:600;color:var(--tea)}
+
+/* script cards */
+.scard{border-radius:18px;padding:16px;margin-bottom:12px}
+.scard .top{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.scard .top h3{margin:0;font-size:16px}
+.scard .top .meta{font-size:12.5px;color:var(--mut)}
+.scard textarea.in{min-height:150px;font-size:15px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.status{font-size:12.5px;font-weight:700;color:var(--tea)}
+.status.late{color:var(--rst)}
+.status.wait{color:var(--brn)}
+.mini{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.mini .chip{font-size:12.5px;padding:6px 10px}
+.mini .chip.on::before{content:"\2713  "}
+.empty{color:var(--mut);font-size:14px;text-align:center;padding:24px}
+.win{text-align:center;padding:26px 20px}
+.win .big{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--tea);line-height:1}
+
+/* bottom bar */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(244,246,246,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.nav .in2{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:10px}
+.nav .reason{flex:1;font-size:13px;color:var(--rst);font-weight:600;line-height:1.3;min-width:0}
+.nav .reason.ok{color:var(--tea)}
+.nav .btn{padding:12px 18px;font-size:15px}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:60;background:rgba(14,38,43,.45);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:24px 14px}
+.modal.show{display:flex}
+.modal .card{max-width:620px;width:100%;margin:0}
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);opacity:0;background:var(--tea);color:#fff;font-weight:700;padding:11px 18px;border-radius:99px;transition:all .35s var(--ease);pointer-events:none;z-index:70}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{text-align:center;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding:0 20px 30px}
+
+@media (max-width:620px){
+  .bar{padding:10px 14px}
+  .hdr-tools{width:100%}
+  .hdr-tools select{flex:1;max-width:none}
+  main{padding:14px 12px 30px}
+  .card{padding:16px}
+  h2{font-size:25px}
+  .say{padding:15px 16px}
+  .say p{font-size:18px}
+  .row2,.row3{grid-template-columns:1fr}
+  .nav .btn{padding:12px 14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="bg"><i class="b1"></i><i class="b2"></i></div>
+
+<header>
+  <div class="bar">
+    <div class="brand">
+      <div class="mark">R</div>
+      <div style="min-width:0">
+        <div class="sub">Team RISE &middot; Introductions</div>
+        <h1 id="title">Names to <em>group texts</em></h1>
+      </div>
+    </div>
+    <div class="hdr-tools">
+      <select id="sessions" title="Your introducers"></select>
+      <button class="btn small" id="newSession">New</button>
+      <button class="btn small" id="settings" title="Your info">Me</button>
+    </div>
+  </div>
+  <div class="steps" id="steps"></div>
+</header>
+
+<main id="main"></main>
+<footer>We compete to be #1 &middot; No exceptions</footer>
+
+<nav class="nav">
+  <div class="in2">
+    <button class="btn" id="back">Back</button>
+    <div class="reason" id="reason"></div>
+    <button class="btn teal" id="next">Next</button>
+  </div>
+</nav>
+
+<!-- your info -->
+<div class="modal" id="meModal">
+  <div class="card glass">
+    <p class="eyebrow">Set up once</p>
+    <h2>Your <em>info</em></h2>
+    <p class="lead">The app writes every text in your words. Fill this in one time. It saves on this device.</p>
+    <label class="f" for="meName">Your full name</label>
+    <input class="in" id="meName" placeholder="Your name" autocomplete="name">
+    <div class="row2">
+      <div>
+        <label class="f" for="mePron">You are</label>
+        <select class="in" id="mePron"><option value="he">He / him</option><option value="she">She / her</option></select>
+      </div>
+      <div>
+        <label class="f" for="meRole">Your spouse is your</label>
+        <select class="in" id="meRole"><option value="wife">Wife</option><option value="husband">Husband</option><option value="">Not in the business</option></select>
+      </div>
+    </div>
+    <label class="f" for="mePartner">Spouse's first name (if you run the firm together)</label>
+    <input class="in" id="mePartner" placeholder="Spouse's first name">
+    <label class="f" for="meFirm">What your firm does (finishes "own a firm ...")</label>
+    <input class="in" id="meFirm" placeholder="that teaches families how money works.">
+    <div class="row2">
+      <div><label class="f" for="meA">Time choice A</label><input class="in" id="meA" placeholder="a quick call Tuesday evening"></div>
+      <div><label class="f" for="meB">Time choice B</label><input class="in" id="meB" placeholder="Thursday evening"></div>
+    </div>
+    <label class="f" for="meStory">Your crusade story (a family you helped lately)</label>
+    <textarea class="in" id="meStory" placeholder="Just last week we sat down with a young couple who had no plan if something happened to him. Now their kids are protected, and they have a plan to be debt free in six years."></textarea>
+    <div class="acts" style="margin-top:16px"><button class="btn teal" id="meSave">Save</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- content ---------- */
+const STEPS = [
+  {t:"Book it"},
+  {t:"Their world"},
+  {t:"The crusade"},
+  {t:"Names"},
+  {t:"Scripts"},
+  {t:"Close the loop"}
+];
+
+/* Teammate doors: why they'd fit. Base: Ed's Chloe text + Team RISE Playbook "Three way text, business partner". */
+const TEAM_DOORS = [
+  {k:"t_more",    label:"Great at their job, wants more",
+   because:"you're great at what you do, and I know you want more. They mentor sharp, driven people who want more than one stream of income, and you came straight to mind."},
+  {k:"t_new",     label:"Starting their career",
+   because:"you're just starting your career, and I'd love for you to see what they're building. They mentor sharp, driven young professionals who want more than one stream of income, and you came straight to mind."},
+  {k:"t_compete", label:"Competitive, a leader",
+   because:"you're one of the sharpest, most competitive people I know, and they're looking for people exactly like you."},
+  {k:"t_lead",    label:"Natural leader",
+   because:"you're a natural leader, and people follow you. They're looking for leaders exactly like you, and you came straight to mind."},
+  {k:"t_capped",  label:"Wants out of their job",
+   because:"I know you've been wanting something more than your job can give you, and I immediately thought of you."},
+  {k:"t_other",   label:"Something else", because:""}
+];
+TEAM_DOORS.forEach(d => { d.type = "team"; d.reply = "{intro} speaks highly of you. We're expanding and always looking for sharp people. I'd love to get to know you and hear what you want the next few years to look like."; });
+
+/* Client doors: what just changed. Base: Ed's texts + Team RISE Playbook "Three way text, family or retirement". */
+const DOORS = [
+  ...TEAM_DOORS,
+  {k:"engaged",  label:"Getting married", both:true, open:"Congrats on the wedding, that's a big day!",
+   because:"you're starting married life, and the moves you make in year one set up everything after.",
+   reply:"Congratulations! Enjoy every minute of the big day. Once things settle down, I'd love to get to know you both."},
+  {k:"married",  label:"Just married", both:true,
+   because:"you're newly married, and that's the best time to build a plan together.",
+   reply:"Congratulations on getting married! I'd love to get to know you both."},
+  {k:"baby",     label:"New baby", both:true,
+   because:"you just welcomed a new baby, and that's the best time to build a plan for your family.",
+   reply:"Congratulations on the new baby! I'd love to get to know your family."},
+  {k:"home",     label:"Bought a home",
+   because:"you just bought a home, and that's the best time to build a real plan for your money.",
+   reply:"Congratulations on the new home! That's a lot to be proud of. I'd love to get to know you."},
+  {k:"retired",  label:"Retired",
+   because:"you're retired now, and {he} helps people make sure their savings last as long as they do.",
+   reply:"Congratulations on retirement! That's a lot of years of hard work. I'd love to hear how it's treating you."},
+  {k:"retiring", label:"About to retire",
+   because:"you're getting close to retirement, and the choices you make in the next few years matter most.",
+   reply:"{intro} tells me retirement is around the corner. I'd love to hear what you want it to look like."},
+  {k:"job",      label:"New job",
+   because:"you just started a new job, and that's the best time to set up your money the right way.",
+   reply:"Congrats on the new job! I'd love to hear what you want the next few years to look like."},
+  {k:"school",   label:"In school",
+   because:"you're working so hard in school, and the earlier you have a real plan for your money, the further it goes.",
+   reply:"{intro} tells me you're working hard in school. That's impressive. I'd love to hear where you're headed after."},
+  {k:"other",    label:"Something else",
+   because:"",
+   reply:"I'd love to get to know you."}
+];
+DOORS.forEach(d => { d.type = d.type || "client"; });
+const DOOR = Object.fromEntries(DOORS.map(d => [d.k, d]));
+const TYPE = {team:"Business partner", client:"Client", both:"Both"};
+
+/* Slide 4: the memory jogger. Life events first (easiest to think of, usually clients), then business partner traits. */
+const JOG_LINES = [
+  {ln:"engaged",  door:"engaged",   sec:"life", l:"Getting married",  q:"Who do you know who's getting married soon?"},
+  {ln:"married",  door:"married",   sec:"life", l:"Just married",     q:"Who just got married?"},
+  {ln:"baby",     door:"baby",      sec:"life", l:"New baby",         q:"Who just had a baby, or has one on the way?"},
+  {ln:"home",     door:"home",      sec:"life", l:"Bought a home",    q:"Who just bought a home?"},
+  {ln:"job",      door:"job",       sec:"life", l:"New job",          q:"Who just started a new job?"},
+  {ln:"retiring", door:"retiring",  sec:"life", l:"About to retire",  q:"Who's getting close to retirement?"},
+  {ln:"retired",  door:"retired",   sec:"life", l:"Retired",          q:"Who just retired?"},
+  {ln:"t_more",   door:"t_more",    sec:"team", l:"Wants more",       q:"Who do you know who's great at their job and wants more?"},
+  {ln:"t_compete",door:"t_compete", sec:"team", l:"Most competitive", q:"Who's the most competitive person you know?"},
+  {ln:"t_lead",   door:"t_lead",    sec:"team", l:"Natural leader",   q:"Who's a natural leader, the one people follow?"},
+  {ln:"t_capped", door:"t_capped",  sec:"team", l:"Stuck",            q:"Who's great at what they do but stuck where they are?"},
+  {ln:"other",    door:"other",     sec:"other", l:"Anyone else",     q:"Anyone else who came to mind?"}
+];
+const lineOf = n => n.line || "other";
+
+const RELS = ["friend","sister","brother","daughter","son","mom","dad","cousin","niece","nephew","coworker","neighbor","pastor"];
+
+/* Teammate and client boxes set the type and door for the next name */
+const TEAM_JOG = [
+  ["Most impressive", "Who's the most impressive person you know? Not someone looking for a job. Someone sharp, great at what they do.", "t_more"],
+  ["Wants more", "Who's really good at their job but wants more?", "t_more"],
+  ["Most competitive", "Who's the most competitive person you know?", "t_compete"],
+  ["Just starting out", "Who do you know who's young, hungry, and just starting their career?", "t_new"],
+  ["Capped", "Who do you know who's great at what they do but stuck where they are?", "t_capped"]
+];
+const MONEY = [
+  ["Getting married", "Who do you know who's getting married soon?", "engaged"],
+  ["Just married", "Who do you know who just got married?", "married"],
+  ["New baby", "Who do you know who just had a baby?", "baby"],
+  ["Bought a home", "Who do you know who just bought a home?", "home"],
+  ["Retired", "Who do you know who just retired?", "retired"],
+  ["About to retire", "Who do you know who's about to retire?", "retiring"],
+  ["New job", "Who do you know who just changed jobs?", "job"],
+  ["In school", "Who do you know who's in school right now?", "school"]
+];
+const JOGGER = [
+  ["Family", "Who in your family would you love to see win?"],
+  ["Kids", "Tell me about your kids. What are they up to?"],
+  ["Best friends", "Who are your best friends?"],
+  ["Church", "Who do you know from church?"],
+  ["Co-workers", "Who do you work with that you really respect?"],
+  ["Best boss", "Who's the best boss you ever had?"],
+  ["Neighbors", "Which neighbors do you actually talk to?"],
+  ["Ambitious", "Who's the most ambitious person you know?"],
+  ["Gym or sports", "Who do you play sports or work out with?"],
+  ["Phone contacts", "Open your phone and scroll your contacts. Who jumps out?"]
+];
+
+/* ---------- state ---------- */
+const KEY = "rise-intro-flow-v1";
+let db = load();
+let jog = null; // active jogger [label, question, door]
+
+function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+function blankMe(){ return {name:"", pron:"he", role:"wife", partner:"", firm:"", a:"", b:"", story:""}; }
+function blankSession(){
+  return {id:uid(), intro:"", introPhone:"", created:Date.now(), updated:Date.now(), step:1, max:1,
+    bookText:"", booked:false, worldNotes:"", world:false, crusade:false,
+    names:[], scriptsOk:false, howtoSent:false, thanked:false, thankedAt:null};
+}
+function blankName(){
+  return {id:uid(), name:"", phone:"", type:"", rel:"", relOther:"", door:"", because:"", note:"", hot:"", line:"", open:false, sCallAfter:null, sTextForgot:null, sCallForgot:null, how:"", by:"", fallback:"", nudgeOk:false, script:null, reply:null,
+    sent:false, landedAt:null, replied:false, answered:false, booked:false, bsc:false, nudged:false};
+}
+function load(){
+  try{
+    const d = JSON.parse(localStorage.getItem(KEY));
+    if(d && d.sessions && d.sessions.length){
+      d.sessions.forEach(x => { x.step = Math.min(x.step, 6); x.max = Math.min(x.max, 6); });
+      return d;
+    }
+  }catch(e){}
+  const s = blankSession();
+  return {me:blankMe(), current:s.id, sessions:[s]};
+}
+function save(){ cur().updated = Date.now(); try{ localStorage.setItem(KEY, JSON.stringify(db)); }catch(e){} }
+function cur(){ return db.sessions.find(s => s.id === db.current) || db.sessions[0]; }
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const first = s => String(s||"").trim().split(/\s+/)[0] || "";
+const plural = (k, w) => `${k} ${w}${k === 1 ? "" : "s"}`;
+const cap = s => s ? s[0].toUpperCase() + s.slice(1) : s;
+function fmtPhone(v){
+  const d = v.replace(/\D/g,"").replace(/^1(?=\d{10})/,"").slice(0,10);
+  if(d.length < 4) return d;
+  if(d.length < 7) return `(${d.slice(0,3)}) ${d.slice(3)}`;
+  return `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
+}
+function smsHref(num, body){
+  const d = String(num||"").replace(/[^\d+]/g,"");
+  const sep = /android/i.test(navigator.userAgent) ? "?" : "&";
+  return `sms:${d}${sep}body=${encodeURIComponent(body)}`;
+}
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("show"), 1900); }
+async function copy(text, msg){
+  try{ await navigator.clipboard.writeText(text); toast(msg || "Copied"); return true; }
+  catch(e){
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+    let ok = false; try{ ok = document.execCommand("copy"); }catch(_){}
+    ta.remove(); toast(ok ? (msg || "Copied") : "Copy blocked. Press and hold to copy."); return ok;
+  }
+}
+function introName(){ return first(cur().intro) || "them"; }
+function meFull(){ return db.me.name.trim() || "me"; }
+function meFirst(){ return first(db.me.name) || "me"; }
+function P(){
+  const he = db.me.pron === "she" ? "she" : "he";
+  return {he, He:cap(he), his: he === "she" ? "her" : "his"};
+}
+function fill(s){
+  const p = P();
+  return String(s||"").replace(/\{he\}/g, p.he).replace(/\{He\}/g, p.He).replace(/\{intro\}/g, introName());
+}
+function endDot(s){ s = s.trim(); return s && !/[.!?]$/.test(s) ? s + "." : s; }
+const phoneOk = n => n.phone.replace(/\D/g,"").length >= 10;
+function isReady(n){ return !missing(n).length; }
+function started(n){ return n.name.trim() || n.phone || n.rel || n.relOther.trim() || n.note.trim() || (n.hot||"").trim(); }
+function readyNames(){ return cur().names.filter(isReady); }
+
+/* ---------- the scripts ---------- */
+function meetLabel(n){
+  const r = (n.rel === "other" ? n.relOther.trim() : n.rel).toLowerCase();
+  const f = first(n.name);
+  if(!r || r === "friend") return f;
+  if(r === "pastor") return "Pastor " + f;
+  return `my ${r.replace(/^my\s+/,"")} ${f}`;
+}
+function whoLine(partnerDoor){
+  const p = P(), me = db.me;
+  const firm = partnerDoor ? "that is expanding and looking for good people."
+             : endDot(me.firm.trim() || "that teaches families how money works.");
+  if(me.partner.trim() && me.role) return `${p.He}'s a financial professional, and ${p.he} and ${p.his} ${me.role} ${me.partner.trim()} own a firm ${firm}`;
+  return `${p.He}'s a financial professional with a firm ${firm}`;
+}
+/* "they" means you and your spouse; with no spouse in the firm it turns into he or she */
+function soloize(s){
+  if(db.me.partner.trim() && db.me.role) return s;
+  const p = P();
+  return s.replace(/\bwhat they're building\b/g, `what ${p.he}'s building`).replace(/\bThey mentor\b/g, `${p.He} mentors`)
+          .replace(/\bthey're looking\b/g, `${p.he}'s looking`);
+}
+/* the reason line, matched to the door and the fit */
+function defaultBecause(n){
+  const d = DOOR[n.door]; if(!d) return "";
+  const td = d.type === "team";
+  if(n.door === "other" || n.door === "t_other") return td || n.type === "team"
+    ? "you're one of the sharpest people I know, and they're looking for people exactly like you."
+    : "you work so hard, and you deserve a real plan for your money.";
+  if(n.type === "team" && !td) return "you're one of the sharpest people I know, and they're looking for people exactly like you.";
+  if(n.type === "client" && td) return "you work so hard, and you deserve a real plan for your money.";
+  return fill(d.because);
+}
+function buildScript(n){
+  const d = DOOR[n.door] || DOOR.other, p = P(), f = first(n.name) || "[Name]";
+  const note = n.note.trim() ? endDot(n.note) + " " : "";
+  const because = endDot(fill(n.because.trim() || defaultBecause(n))) || "[why you thought of them].";
+  const td = d.type === "team", both = n.type === "both";
+  if(n.type === "team" || (both && td)){
+    const fam = both ? `${p.He}'s also a great resource for families. ` : "";
+    return `Hey ${f}! I want you to meet my friend ${meFull()}. ${whoLine(true)} I'm connecting you two because ${soloize(because)} ${fam}${meFirst()}, meet ${meetLabel(n)}. ${note}I'll let you two take it from here!`;
+  }
+  const open = d.open ? d.open + " " : "";
+  const firmThey = db.me.partner.trim() && db.me.role ? "They're" : `${p.He}'s`;
+  const grow = both ? ` ${firmThey} also expanding and looking for good people, so you two should talk.` : "";
+  return `Hi ${f}! ${open}I want to introduce you to my friend ${meFull()}. ${whoLine(false)} I'm connecting you because ${because} ${p.He}'d be a great resource for you${d.both ? " both" : ""}.${grow} ${meFirst()}, meet ${meetLabel(n)}.${note ? " " + note.trim() : ""}`;
+}
+function scriptOf(n){ return n.script ?? buildScript(n); }
+function buildReply(n){
+  const d = DOOR[n.door] || DOOR.other;
+  const a = db.me.a.trim() || "a quick call Tuesday evening", b = db.me.b.trim() || "Thursday evening";
+  return `Thanks, ${introName()}! ${first(n.name)}, great to meet you. ${fill(d.reply)} What's better for you, ${a} or ${b}?`;
+}
+function replyOf(n){ return n.reply ?? buildReply(n); }
+
+/* the follow-up scripts, all in your voice */
+const WHY_SHORT = {
+  engaged:"you're getting married", married:"you just got married", baby:"you just had a baby", home:"you just bought a home",
+  job:"you just started a new job", retiring:"retirement is coming up for you", retired:"you just retired", school:"you're working hard in school",
+  t_more:"you're great at what you do and you want more", t_compete:"you're one of the most competitive people {intro} knows",
+  t_lead:"you're a natural leader", t_capped:"you're great at what you do and ready for something more", t_new:"you're sharp and just getting started"
+};
+function timesAB(){ return [db.me.a.trim() || "Tuesday evening", db.me.b.trim() || "Thursday evening"]; }
+function whyShort(n){ return fill(WHY_SHORT[n.door] || "you came straight to mind"); }
+function callBody(n, open){
+  const I = introName(), [a,b] = timesAB(), team = n.type === "team";
+  return [
+    open,
+    `[If no] ${I} speaks so highly of you. ${I} thought of you because ${whyShort(n)}.`,
+    team ? `We're expanding our firm, and we're always looking for sharp people. I'm curious, what do you want the next few years to look like for you?`
+         : `We help families get a clear plan for their money. I'm curious, what's been on your mind lately when it comes to your family's finances?`,
+    `[Listen. Let them talk.]`,
+    `I'd love to get together and hear more. What's better for you, ${a} or ${b}?`
+  ].join("\n\n");
+}
+function callAfter(n){
+  const f = first(n.name) || "[Name]", I = introName();
+  return callBody(n, `Hi ${f}, this is ${meFirst()}, ${I}'s friend. ${I} connected us by text. Is now a bad time?`);
+}
+function callForgot(n){
+  const f = first(n.name) || "[Name]", I = introName();
+  return callBody(n, `Hi ${f}, this is ${meFirst()}. I'm a friend of ${I}'s, and ${I} said it would be okay for me to give you a call. Is now a bad time?`);
+}
+function textForgot(n){
+  const f = first(n.name) || "[Name]", I = introName(), [a,b] = timesAB(), d = DOOR[n.door] || DOOR.other;
+  return `Hi ${f}! This is ${meFirst()}, ${I}'s friend. ${I} said it was okay for me to reach out, so I'm starting this group text for the three of us. Thank you, ${I}! ${fill(d.reply)} What's better for you, ${a} or ${b}?`;
+}
+/* key -> [stored field, builder] */
+const SX = {
+  hand:      ["script",      n => buildScript(n)],
+  textAfter: ["reply",       n => buildReply(n)],
+  callAfter: ["sCallAfter",  callAfter],
+  textForgot:["sTextForgot", textForgot],
+  callForgot:["sCallForgot", callForgot]
+};
+function sxOf(k, n){ const [f, b] = SX[k]; return n[f] ?? b(n); }
+const sxOpen = new Set();   // which script dropdowns are open, so a redraw keeps them open
+function howtoText(){
+  return `That's all of them. For each one: start a group text with that person and me, paste the message, and hit send. Add your own words, they're yours. I'll take it from there. Thank you, ${introName()}!`;
+}
+function bookScript(){
+  const nm = first(cur().intro) || "friend";
+  return [
+    `"Hey ${nm}, right now I'm really leaning on personal introductions from people closest to me to help me scale my firm."`,
+    `"I would love to schedule just a 15 minute Zoom or phone call where we can brainstorm some names together. I'll make it really simple for you."`,
+    `"What's your schedule in the next couple of days where we can do that?"`
+  ];
+}
+function thankText(){
+  const ns = readyNames().map(n => first(n.name));
+  const list = ns.length > 1 ? ns.slice(0,-1).join(", ") + " and " + ns.at(-1) : (ns[0] || "your people");
+  return `${introName()}, thank you for connecting me with ${list}. That means a lot. I'll take great care of them.`;
+}
+function nudgeText(n){ return `Hey ${introName()}, I haven't heard from ${first(n.name)} yet. Would you give them a quick nudge?`; }
+
+/* ---------- gates: what must be true to move on ---------- */
+function gate(step){
+  const s = cur();
+  switch(step){
+    case 1: if(!s.intro.trim()) return "Type who you're talking to.";
+            return s.booked ? "" : "Tap \"We have a time\" to move on.";
+    case 2: return s.world ? "" : "Ask about their world first. Then tap the box.";
+    case 3: if(!db.me.story.trim()) return "Write your story first.";
+            return s.crusade ? "" : "Tell the story and set up the list. Then tap the box.";
+    case 4: {
+      const half = s.names.filter(n => started(n) && !isReady(n));
+      if(half.length) return `Finish ${first(half[0].name) || "the open name"}. Tap the arrow next to the name.`;
+      return readyNames().length ? "" : "Get at least one name.";
+    }
+    case 5: return s.scriptsOk ? "" : "Read each script. Then tap the box.";
+    default: return "";
+  }
+}
+function missing(n){
+  const m = [];
+  if(!n.name.trim()) m.push("name");
+  if(!phoneOk(n)) m.push("phone number");
+  if(!n.type) m.push("fit");
+  if(!(n.rel || n.relOther.trim())) m.push(`how ${introName()} knows them`);
+  if(!n.how) m.push("how they'll introduce");
+  else if(n.how === "first" && !(n.by||"").trim()) m.push("when they'll talk to them");
+  else if(n.how === "first" && !n.fallback) m.push("what to do if you don't hear back");
+  return m;
+}
+
+/* ---------- render ---------- */
+function renderHeader(){
+  const s = cur();
+  $("#title").innerHTML = s.intro.trim() ? `With <em>${esc(s.intro.trim())}</em>` : `Names to <em>group texts</em>`;
+  const sorted = [...db.sessions].sort((a,b) => b.updated - a.updated);
+  $("#sessions").innerHTML = sorted.map(x => {
+    const n = x.names.filter(isReady).length;
+    return `<option value="${x.id}"${x.id===db.current?" selected":""}>${esc(x.intro.trim() || "New introducer")} &middot; ${n} name${n===1?"":"s"}</option>`;
+  }).join("");
+  $("#steps").innerHTML = STEPS.map((st, i) => {
+    const n = i + 1, ok = n < s.max || (n <= s.max && !gate(n) && n !== s.step), now = n === s.step, lock = n > s.max;
+    return `<button class="st${ok?" ok":""}${now?" now":""}${lock?" lock":""}" data-go="${n}"${lock?' aria-disabled="true"':""}><b>${ok && !now ? "&#10003;" : n}</b>${st.t}</button>`;
+  }).join("");
+  const nowEl = $("#steps .now"); if(nowEl) nowEl.scrollIntoView({inline:"center", block:"nearest"});
+}
+
+function renderNav(){
+  const s = cur(), g = gate(s.step), r = $("#reason");
+  $("#back").style.visibility = s.step > 1 ? "visible" : "hidden";
+  const nx = $("#next");
+  if(s.step === 6){ nx.style.display = "none"; r.className = "reason ok"; r.textContent = "Last step. Work it over the next 2 days."; return; }
+  nx.style.display = "";
+  nx.disabled = !!g;
+  nx.textContent = s.step === 5 ? "Close the loop" : "Next";
+  r.className = "reason" + (g ? "" : " ok");
+  r.textContent = g || "Good. Next step.";
+}
+
+function check(id, on, text){
+  return `<button class="check${on?" on":""}" data-check="${id}"><span class="box">${on?"&#10003;":""}</span>${text}</button>`;
+}
+
+function stepHTML(){
+  const s = cur(), I = esc(introName());
+  switch(s.step){
+
+  case 1: return `
+    <div class="card glass">
+      <p class="eyebrow">Step 1 of 6 &middot; Before the call</p>
+      <h2>Book <em>the time</em></h2>
+      <p class="lead">Call them. Say this. Book 15 minutes.</p>
+      <label class="f" for="intro">Who are you talking to?</label>
+      <div class="row2">
+        <input class="in" id="intro" data-s="intro" value="${esc(s.intro)}" placeholder="Their name (Ed)" autocomplete="off">
+        <input class="in" id="introPhone" data-s="introPhone" value="${esc(s.introPhone)}" placeholder="Their phone" inputmode="tel" autocomplete="off">
+      </div>
+      <div class="acts">
+        <a class="btn teal" data-call="intro" href="#">Call ${I}</a>
+      </div>
+    </div>
+    <div class="say" id="bookSay">
+      <small>Say this on the phone</small>
+      ${bookScript().map(l => `<p>${esc(l)}</p>`).join("")}
+    </div>
+    <div class="card glass">
+      <p class="why" style="margin-top:0"><b>Phone call only. Never text this.</b> Your voice is what gets the yes. A text is easy to ignore.</p>
+    </div>
+    ${check("booked", s.booked, "We have a time")}`;
+
+  case 2: return `
+    <div class="card glass">
+      <p class="eyebrow">Step 2 of 6 &middot; On the call</p>
+      <h2>${I}'s <em>world first</em></h2>
+      <p class="lead">No names yet. Ask, then listen. Let them talk.</p>
+    </div>
+    <div class="say">
+      <small>Ask one, then follow it</small>
+      <p>"What's been keeping you busy lately?"</p>
+      <p>"What are you most excited about right now?"</p>
+      <p>"How's the family doing?"</p>
+    </div>
+    <div class="card glass">
+      <label class="f" for="worldNotes" style="margin-top:0">What did you learn? (names they mention go here too)</label>
+      <textarea class="in" id="worldNotes" data-s="worldNotes" placeholder="Two devices in development. Daughter just started nursing downtown. Nephew getting married Friday.">${esc(s.worldNotes)}</textarea>
+      <p class="why">Ed's call: he talked about his two devices first. Three of his six names came out of that talk.</p>
+    </div>
+    ${check("world", s.world, "I asked and I listened")}`;
+
+  case 3: {
+    const story = db.me.story.trim();
+    return `
+    <div class="card glass">
+      <p class="eyebrow">Step 3 of 6 &middot; On the call</p>
+      <h2>The <em>crusade</em></h2>
+      <p class="lead">You already connected. Now tell them why you're fired up. Five beats, then hand off to the names.</p>
+    </div>
+    <div class="say gold">
+      <small>Say it in your words</small>
+      <div class="beat"><i>1</i><p><span class="tag">Why I'm excited</span>"I'm so excited about getting the word out right now. Most families never get real help with their money, and we get to change that."</p></div>
+      <div class="beat"><i>2</i><div><span class="tag">A family we just helped</span>
+        <textarea class="in${story?"":" miss"}" id="story" data-me="story" style="margin-top:4px" placeholder="Just last week we sat down with a family who [their problem]. Now they [what changed].">${esc(db.me.story)}</textarea>
+        <p class="why" style="font-family:var(--sans);font-size:13px;margin-top:8px">No names, no dollar amounts. Just what changed for them. Saves for every call.</p></div></div>
+      <div class="beat"><i>3</i><p><span class="tag">More families</span>"We want to help a lot more families like that."</p></div>
+      <div class="beat"><i>4</i><p><span class="tag">More people</span>"And to do that, we need more people out there helping families too."</p></div>
+      <div class="beat"><i>5</i><p><span class="tag">The handoff</span>"So I'm going to go through a list of different characteristics and life changes. When a name comes to mind, just let me know. If a name doesn't come to mind, don't worry about it. I'll go on to the next one."</p></div>
+    </div>
+    ${check("crusade", s.crusade, "I told the story and set up the list")}`;
+  }
+
+  case 4: {
+    s.names = s.names.filter(n => started(n));   // drop empty name lines
+    const rn = readyNames().length, total = s.names.length;
+    return `
+    <div class="card glass">
+      <p class="eyebrow">Step 4 of 6 &middot; On the call</p>
+      <h2>Get <em>the names</em></h2>
+      <p class="lead">Three moves. Tell them who you want. Ask the questions. Then fill in each name.</p>
+    </div>
+    <div class="say gold">
+      <small>1. Tell them who you're looking for</small>
+      <p>"Here's who we're looking for: people who are married, over 30, have kids at home, own a home, and make about $100K a year together."</p>
+      <div class="mrow"><span>Married</span><span>Over 30</span><span>Kids at home</span><span>Homeowner</span><span>$100K+ together</span></div>
+    </div>
+    <div class="card glass">
+      <h3 class="jsec">2. Ask, then write the name</h3>
+      <p class="lead" style="margin:0 0 6px">Read the question out loud. Type the name. No name? Go to the next one.</p>
+      <h3 class="jsec two" style="margin-top:12px">Life events <span>Usually clients</span></h3>
+      ${JOG_LINES.filter(L => L.sec === "life").map(rowHTML).join("")}
+      <h3 class="jsec two">Business partners <span>Great at what they do, wants more</span></h3>
+      ${JOG_LINES.filter(L => L.sec !== "life").map(rowHTML).join("")}
+    </div>
+    <div class="say">
+      <small>3. Fill in each name</small>
+      <p style="font-family:var(--sans);font-size:15.5px;line-height:1.5">Tap the <b style="display:inline-grid;place-items:center;width:24px;height:24px;border-radius:99px;background:var(--goldbg);border:1.5px solid var(--gold);color:var(--brn);font-size:12px">&#9662;</b> next to a name. Fill in the boxes. It turns green <b style="display:inline-grid;place-items:center;width:24px;height:24px;border-radius:99px;background:var(--tea);color:#fff;font-size:12px">&#10003;</b> when it's done.</p>
+      <p style="font-family:var(--sans);font-size:15.5px;margin-top:8px"><b>${rn} of ${total}</b> names done.</p>
+    </div>
+    <p class="why">Always get a time. Then you're reminding them, not bugging them. Skip it and the name just sits there.</p>`;
+  }
+
+  case 5: {
+    const rn = readyNames();
+    const HOW = {now:"Sending it now", first:"Talking to them first", call:"OK for you to call"};
+    const FB = {call:"OK to call with their name", text:"OK for you to start the group text", wait:"Wait for them"};
+    const dd = (k, n, title, sub) => {
+      const [field] = SX[k], id = `${k}:${n.id}`, edited = n[field] != null, call = k.startsWith("call");
+      return `<details class="sx${call?" call":""}" data-sxd="${id}"${sxOpen.has(id)?" open":""}>
+        <summary><span class="sxic">${call ? "&#9742;" : "&#9993;"}</span><span class="sxt"><b>${title}</b><small>${sub}</small></span></summary>
+        <textarea class="in" data-sx="${id}" style="min-height:${call?230:150}px">${esc(sxOf(k, n))}</textarea>
+        <div class="acts"><button class="btn small teal" data-sxcopy="${id}">Copy</button>${edited ? `<button class="btn small" data-sxreset="${id}">Undo my edits</button>` : `<span class="status wait">Edit anything. It saves.</span>`}</div>
+      </details>`;
+    };
+    return `
+    <div class="card glass">
+      <p class="eyebrow">Step 5 of 6 &middot; Right after the call</p>
+      <h2>Scripts <em>for each person</em></h2>
+      <p class="lead">Built from what you filled in. Tap a script to open it. Change any word so it sounds like you.</p>
+    </div>
+    ${rn.map((n,i) => {
+      const F = esc(first(n.name)), how = n.how, fb = n.fallback;
+      const list = [];
+      if(how !== "call"){
+        list.push(dd("hand", n, "Digital handshake script", `${I} sends this group text to ${F} and you`));
+        list.push(dd("textAfter", n, "Text after the digital handshake", `Your reply in the group text, inside 1 hour`));
+        list.push(dd("callAfter", n, "Phone call after the digital handshake", `When you call ${F}`));
+      }
+      if(how === "first" && fb === "text") list.push(dd("textForgot", n, "Text if they forgot the digital handshake", `No word in 48 hours. You start the group text.`));
+      if(how === "call" || (how === "first" && fb === "call")) list.push(dd("callForgot", n, how === "call" ? `Phone call using ${I}'s name` : "Phone call if they forgot the digital handshake", how === "call" ? `${I} said it's OK to call` : `No word in 48 hours. You call ${F}.`));
+      return `
+      <div class="scard glass">
+        <div class="top"><span class="nnum">${i+1}</span><h3>${esc(n.name)}</h3><span class="meta">${TYPE[n.type] || ""}</span></div>
+        <p class="sxmeta">${HOW[how] || ""}${how === "first" ? ` &middot; ${esc(n.by)}` : ""}${how === "first" && fb ? ` &middot; ${FB[fb]}` : ""}</p>
+        ${(n.hot||"").trim() ? `<p class="soft" style="margin:0 0 8px">About ${F}: ${esc(n.hot)}</p>` : ""}
+        ${list.join("")}
+        ${how === "first" && fb === "wait" ? `<p class="soft">${I} asked you to wait. No word in 48 hours? Text ${I} to check in on ${F}.</p>` : ""}
+      </div>`;
+    }).join("")}
+    ${check("scriptsOk", s.scriptsOk, "I read every script and it sounds like us")}`;
+  }
+
+  case 6: {
+    const rn = readyNames();
+    const answered = rn.filter(n => n.answered).length, booked = rn.filter(n => n.booked).length;
+    return `
+    <div class="card glass win">
+      <p class="eyebrow">Step 6 of 6 &middot; Next 2 days</p>
+      <div class="big">${plural(rn.length, "name")}</div>
+      <p class="lead" style="margin-top:8px">${plural(rn.filter(n=>n.type!=="client").length, "business partner")} &middot; ${plural(rn.filter(n=>n.type!=="team").length, "financial education")}<br>${answered} answered &middot; ${booked} booked</p>
+    </div>
+    <div class="card glass">
+      <h3>Thank ${I} inside 24 hours</h3>
+      <textarea class="in" readonly style="min-height:80px">${esc(thankText())}</textarea>
+      <div class="acts">
+        <a class="btn ${s.thanked?"done":"teal"}" data-sms="thank" href="#">${s.thanked ? "Thanked. Send again" : `Text ${I}`}</a>
+        <button class="btn" data-copy="thank">Copy</button>
+      </div>
+    </div>
+    ${rn.map(n => {
+
+      return `<div class="scard glass">
+        <div class="top"><h3>${esc(n.name)}</h3><span class="meta">${TYPE[n.type]} &middot; ${esc(n.phone)}</span></div>
+        <div class="mini">
+          <button class="chip${n.answered?" on":""}" data-tog="answered:${n.id}">They answered</button>
+          <button class="chip${n.booked?" on":""}" data-tog="booked:${n.id}">Booked</button>
+          <button class="chip${n.bsc?" on":""}" data-tog="bsc:${n.id}">In BSC Pro</button>
+        </div>
+        ${n.answered ? "" : `<div class="acts">
+          <a class="btn ${n.nudged?"done":"teal"} small" data-sms="nudge:${n.id}" href="#">${n.nudged?"Nudged. Again":`Ask ${I} to nudge`}</a>
+          <span class="status wait">${n.how === "first" && n.by ? `${I} said: ${esc(n.by)}. No word 48 hours after? Nudge.` : `No answer in 48 hours? Nudge ${I}.`}</span>
+        </div>`}
+      </div>`;}).join("")}
+    <div class="acts" style="margin-top:6px">
+      <button class="btn" id="csv">Download list</button>
+      <button class="btn" id="copyList">Copy list</button>
+    </div>
+    <p class="why">Then ask ${I} again next month. Name the last time: "When we talked in November..."</p>`;
+  }
+  }
+}
+
+function rowHTML(L){
+  const ns = cur().names.filter(n => lineOf(n) === L.ln);
+  const nameHTML = n => `<div class="jn"><input class="in jin" data-jn="${n.id}" value="${esc(n.name)}" placeholder="Name" autocomplete="off"><button class="jtog${isReady(n)?" ok":""}${n.open?" on":""}" data-open="${n.id}" data-pill="${n.id}" aria-label="Fill in ${esc(n.name)}">${isReady(n) ? "&#10003;" : "&#9662;"}</button></div>`;
+  const blank = `<input class="in jin" data-jl="${L.ln}" placeholder="${ns.length ? "Another name" : "Name"}" autocomplete="off">`;
+  const oi = ns.findIndex(n => n.open);
+  if(oi < 0) return `<div class="jrow" data-row="${L.ln}"><p class="jq">${esc(L.q)}</p><div class="jcol">${ns.map(nameHTML).join("")}${blank}</div></div>`;
+  /* the open name's box sits right under that name; the rest of the names continue below it */
+  const after = ns.slice(oi + 1);
+  return `<div class="jrow" data-row="${L.ln}"><p class="jq">${esc(L.q)}</p><div class="jcol">${ns.slice(0, oi + 1).map(nameHTML).join("")}</div>
+    ${bodyHTML(ns[oi])}
+    <div class="jcol" style="grid-column:2">${after.map(nameHTML).join("")}${blank}</div></div>`;
+}
+function relText(n){ return n.rel === "other" ? n.relOther : n.rel; }
+function bodyHTML(n){
+  const I = esc(introName()), F = `<span data-fname>${esc(first(n.name) || "them")}</span>`, team = n.type === "team", ready = isReady(n);
+  const fb = (k, label) => `<button class="chip${n.fallback===k?" on":""}" data-fallback="${k}" data-id="${n.id}">${label}</button>`;
+  const chip = (attr, k, label) => `<button class="chip${n[attr === "type" ? "type" : "how"] === k ? " on" : ""}" data-${attr}="${k}" data-id="${n.id}">${label}</button>`;
+  return `<div class="jbody" data-card="${n.id}">
+    <div class="jbhead"><b data-sumname>${esc(n.name) || "New name"}</b><span class="pill ok" data-pillb${ready?"":' style="display:none"'}>Done</span></div>
+
+    <label class="f">How does ${I} know them?</label>
+    <input class="in${relText(n).trim()?"":" miss"}" data-n="relOther" data-id="${n.id}" value="${esc(relText(n))}" placeholder="sister, coworker, neighbor" autocomplete="off">
+
+    <label class="f">More about them</label>
+    <textarea class="in" data-n="hot" data-id="${n.id}" placeholder="Nurse at WakeMed. Two kids. Wants to retire early." style="min-height:60px">${esc(n.hot)}</textarea>
+
+    <label class="f">Client or business partner?</label>
+    <div class="chips">${chip("type","client","Client")}${chip("type","team","Business partner")}</div>
+
+    <label class="f">Their number</label>
+    <p class="line">Say: "What's the best number for ${F}? I won't reach out without your permission."</p>
+    <input class="in${phoneOk(n)?"":" miss"}" style="margin-top:8px" data-n="phone" data-id="${n.id}" value="${esc(n.phone)}" placeholder="(555) 555-5555" inputmode="tel" autocomplete="off">
+
+    <label class="f">How will ${I} introduce you?</label>
+    <p class="line">Ask first: "How do you prefer introducing them to me?"</p>
+    <p class="line">If they're not sure: "We do something called a <b>digital handshake</b>. I write a group text for you. It takes all the guesswork out of it. You copy it, paste it, and send it to ${F} and me. Want to send it now, or talk to them first?"</p>
+    <div class="chips" style="margin-top:8px">${chip("how","now","Send it now")}${chip("how","first","Talk first")}${chip("how","call","OK for me to call")}</div>
+    ${n.how === "first" ? `
+      <p class="line" style="margin-top:12px">Say: "That's totally fine. When do you think you'll talk to them?"</p>
+      <label class="f">When will ${I} talk to them?</label>
+      <input class="in${(n.by||"").trim()?"":" miss"}" data-n="by" data-id="${n.id}" value="${esc(n.by)}" placeholder="Saturday at lunch" autocomplete="off">
+      <p class="line" style="margin-top:12px">Say: "And if I don't hear back from you within 48 hours, is it okay if I call them and mention your name? Or I can start the group text myself and say you said it was okay to connect."</p>
+      <label class="f">No word in 48 hours? ${I} said:</label>
+      <div class="chips">${fb("call","OK to call and use my name")}${fb("text","OK to start the group text")}${fb("wait","Wait for me")}</div>` : ""}
+    ${n.how === "call" ? `<p class="soft">You'll call ${F} and say ${I} sent you. Make sure ${I} is really OK with that.</p>` : ""}
+
+    ${n.type && n.how !== "call" ? `<div class="say${team?"":" gold"}" style="margin:14px 0 0">
+      <small>The group text ${I} sends</small>
+      <p data-preview="${n.id}" style="font-family:var(--sans);font-size:15px;line-height:1.5">${esc(scriptOf(n))}</p>
+      <div class="acts" style="margin-top:6px"><button class="btn small teal" data-copyname="${n.id}">Copy group text</button></div>
+    </div>` : ""}
+    <div class="acts"><button class="btn small" data-open="${n.id}">Close</button><button class="btn small" data-del="${n.id}">Remove</button></div>
+  </div>`;
+}
+
+function renderStep(){
+  $("#main").innerHTML = stepHTML();
+  tickClocks();
+}
+function renderAll(){ renderHeader(); renderStep(); renderNav(); }
+function refresh(){ renderHeader(); renderNav(); }
+
+/* ---------- clocks for step 8 ---------- */
+function tickClocks(){
+  document.querySelectorAll("[data-clock]").forEach(el => {
+    const n = cur().names.find(x => x.id === el.dataset.clock); if(!n) return;
+    if(n.replied){ el.className = "status"; el.textContent = "Replied"; return; }
+    const left = Math.round((n.landedAt + 36e5 - Date.now()) / 6e4);
+    el.className = "status" + (left < 0 ? " late" : left < 15 ? " wait" : "");
+    el.textContent = left >= 0 ? `${left} min left` : `${-left} min late. Send it now.`;
+  });
+}
+setInterval(tickClocks, 30000);
+
+/* ---------- events ---------- */
+function go(n){
+  const s = cur();
+  if(n < 1 || n > STEPS.length || n > s.max) return;
+  s.step = n; save(); jog = null; renderAll(); window.scrollTo({top:0, behavior:"smooth"});
+}
+$("#next").onclick = () => {
+  const s = cur(); if(gate(s.step)) return;
+  s.step++; s.max = Math.max(s.max, s.step); save(); jog = null; renderAll(); window.scrollTo({top:0, behavior:"smooth"});
+};
+$("#back").onclick = () => go(cur().step - 1);
+$("#steps").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if(b) go(+b.dataset.go); });
+
+function nameById(id){ return cur().names.find(n => n.id === id); }
+function addName(door){
+  const n = blankName(); n.open = true; if(door){ n.door = door; n.type = DOOR[door].type; n.because = fill(DOOR[door].because); }
+  cur().names.push(n); save(); renderStep(); refresh();
+  const el = document.querySelector(`[data-card="${n.id}"] [data-n="name"]`);
+  if(el){ el.focus({preventScroll:true}); el.scrollIntoView({block:"center", behavior:"smooth"}); }
+}
+
+function smsFor(kind){
+  const s = cur();
+  
+  if(kind === "howto") return smsHref(s.introPhone, howtoText());
+  if(kind === "thank") return smsHref(s.introPhone, thankText());
+  const [k, id] = kind.split(":"), n = nameById(id);
+  if(k === "name") return smsHref(s.introPhone, scriptOf(n));
+  if(k === "nudge") return smsHref(s.introPhone, nudgeText(n));
+}
+function textFor(kind){
+  const s = cur();
+  
+  if(kind === "howto") return howtoText();
+  if(kind === "thank") return thankText();
+  const [k, id] = kind.split(":"), n = nameById(id);
+  if(k === "name") return scriptOf(n);
+  if(k === "reply") return replyOf(n);
+}
+function markSent(kind){
+  const s = cur();
+  if(kind === "howto") s.howtoSent = true;
+  else if(kind === "thank"){ s.thanked = true; s.thankedAt = Date.now(); }
+  else if(kind === "book") {}
+  else {
+    const [k, id] = kind.split(":"), n = nameById(id);
+    if(k === "name") n.sent = true;
+    if(k === "nudge") n.nudged = true;
+  }
+  save();
+}
+
+document.addEventListener("click", e => {
+  const t = e.target;
+  const c = t.closest("[data-check]");
+  if(c){ const s = cur(), k = c.dataset.check; s[k] = !s[k]; save(); renderStep(); refresh(); return; }
+
+  const cl = t.closest("[data-call]");
+  if(cl){
+    const num = cur().introPhone.replace(/[^\d+]/g,"");
+    if(num.replace(/\D/g,"").length < 10){ e.preventDefault(); toast(`Add ${introName()}'s phone first`); const ip = $("#introPhone"); if(ip) ip.focus(); return; }
+    cl.href = "tel:" + num; return;
+  }
+  const sm = t.closest("[data-sms]");
+  if(sm){
+    const k = sm.dataset.sms;
+    if(k !== "book" && cur().introPhone.replace(/\D/g,"").length < 10){
+      e.preventDefault(); toast(`Add ${introName()}'s phone first`);
+      const ip = $("#introPhone6") || $("#introPhone"); if(ip) ip.focus(); return;
+    }
+    sm.href = smsFor(k); // follows the link into Messages
+    markSent(k); setTimeout(() => { renderStep(); refresh(); }, 400); return;
+  }
+  const cp = t.closest("[data-copy]");
+  if(cp){
+    const k = cp.dataset.copy;
+    copy(textFor(k)).then(ok => { if(ok && !k.startsWith("reply") && k !== "book"){ markSent(k); renderStep(); refresh(); } });
+    return;
+  }
+
+  const jg = t.closest("[data-jog]");
+  if(jg){
+    const [kind, label] = [jg.dataset.jog.slice(0,1), jg.dataset.jog.slice(2)];
+    const list = kind === "t" ? TEAM_JOG : kind === "m" ? MONEY : JOGGER;
+    const j = list.find(x => x[0] === label);
+    jog = jog && jog[0] === label ? null : [j[0], j[1], j[2] || null, kind === "t" ? "team" : kind === "m" ? "client" : null];
+    renderStep(); return;
+  }
+  if(t.closest("#addName")){ addName(jog && jog[2]); return; }
+  const ty = t.closest("[data-type]");
+  if(ty){
+    const n = nameById(ty.dataset.id), k = ty.dataset.type;
+    if(n.type !== k){
+      const prevDef = defaultBecause(n);
+      n.type = k;
+      if(!n.door || lineOf(n) === "other") n.door = k === "team" ? "t_other" : "other";
+      if(!n.because.trim() || n.because === prevDef) n.because = defaultBecause(n);
+    }
+    n.script = null; n.reply = null; save(); rerenderCard(n); return;
+  }
+  const op = t.closest("[data-open]");
+  if(op){
+    const n = nameById(op.dataset.open), was = n.open;
+    cur().names.forEach(x => { if(x.open && x !== n){ x.open = false; } });
+    n.open = !was; save(); renderStep(); refresh();
+    if(n.open){ const el = document.querySelector(`[data-jn="${n.id}"]`); if(el){ const hh = (document.querySelector("header")||{}).offsetHeight || 0; window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - hh - 16, behavior:"smooth"}); } }
+    return;
+  }
+  const hw = t.closest("[data-how]");
+  if(hw){ const n = nameById(hw.dataset.id), k = hw.dataset.how; n.how = n.how === k ? "" : k; save(); rerenderCard(n); return; }
+  const fbk = t.closest("[data-fallback]");
+  if(fbk){ const n = nameById(fbk.dataset.id), k = fbk.dataset.fallback; n.fallback = n.fallback === k ? "" : k; save(); rerenderCard(n); return; }
+  const nk = t.closest("[data-nudgeok]");
+  if(nk){ const n = nameById(nk.dataset.nudgeok); n.nudgeOk = !n.nudgeOk; save(); rerenderCard(n); return; }
+  const cpn = t.closest("[data-copyname]");
+  if(cpn){ copy(scriptOf(nameById(cpn.dataset.copyname)), "Group text copied"); return; }
+
+  const del = t.closest("[data-del]");
+  if(del){
+    const s = cur(), n = nameById(del.dataset.del);
+    if(started(n) && !confirm(`Remove ${n.name || "this card"}?`)) return;
+    s.names = s.names.filter(x => x !== n); save(); renderStep(); refresh(); return;
+  }
+  const rel = t.closest("[data-rel]");
+  if(rel){ const n = nameById(rel.dataset.id); n.rel = n.rel === rel.dataset.rel ? "" : rel.dataset.rel; n.script = null; save(); rerenderCard(n); return; }
+  const dr = t.closest("[data-door]");
+  if(dr){
+    const n = nameById(dr.dataset.id), k = dr.dataset.door;
+    if(n.door === k){ n.door = ""; }
+    else{
+      const prev = DOOR[n.door];
+      if(!n.because.trim() || (prev && n.because === fill(prev.because))) n.because = fill(DOOR[k].because);
+      n.door = k;
+    }
+    n.script = null; n.reply = null; save(); rerenderCard(n); return;
+  }
+  const sxc = t.closest("[data-sxcopy]");
+  if(sxc){ const [k, id] = sxc.dataset.sxcopy.split(":"); copy(sxOf(k, nameById(id)), "Copied"); return; }
+  const sxr = t.closest("[data-sxreset]");
+  if(sxr){ const [k, id] = sxr.dataset.sxreset.split(":"); nameById(id)[SX[k][0]] = null; save(); renderStep(); return; }
+  const rs = t.closest("[data-reset]");
+  if(rs){ nameById(rs.dataset.reset).script = null; save(); renderStep(); return; }
+  const ld = t.closest("[data-land]");
+  if(ld){ const n = nameById(ld.dataset.land); n.landedAt = n.landedAt ? null : Date.now(); save(); renderStep(); refresh(); return; }
+  const rp = t.closest("[data-replied]");
+  if(rp){ const n = nameById(rp.dataset.replied); n.replied = !n.replied; save(); renderStep(); refresh(); return; }
+  const tg = t.closest("[data-tog]");
+  if(tg){ const [k, id] = tg.dataset.tog.split(":"), n = nameById(id); n[k] = !n[k]; save(); renderStep(); refresh(); return; }
+
+  if(t.closest("#csv")) return downloadCSV();
+  if(t.closest("#copyList")) return copyList();
+});
+
+document.addEventListener("toggle", e => {
+  const k = e.target.dataset && e.target.dataset.sxd; if(!k) return;
+  if(e.target.open) sxOpen.add(k); else sxOpen.delete(k);
+}, true);
+
+/* keep a name's line and dropdown in step without redrawing (so typing keeps focus) */
+function syncCard(n){
+  const jn = document.querySelector(`[data-jn="${n.id}"]`);
+  if(jn && document.activeElement !== jn) jn.value = n.name;
+  const ready = isReady(n), tg = document.querySelector(`[data-pill="${n.id}"]`);
+  if(tg){ tg.classList.toggle("ok", ready); tg.innerHTML = ready ? "&#10003;" : "&#9662;"; }
+  const card = document.querySelector(`[data-card="${n.id}"]`); if(!card) return;
+  const sn = card.querySelector("[data-sumname]"); if(sn) sn.textContent = n.name || "New name";
+  const pb = card.querySelector("[data-pillb]");
+  if(pb) pb.style.display = ready ? "" : "none";
+  const pv = card.querySelector("[data-preview]"); if(pv) pv.textContent = scriptOf(n);
+  card.querySelectorAll("[data-fname]").forEach(x => x.textContent = first(n.name) || "them");
+}
+function rerenderRow(ln, focusSel){
+  const L = JOG_LINES.find(x => x.ln === ln), el = document.querySelector(`[data-row="${ln}"]`);
+  if(!L || !el){ renderStep(); refresh(); return; }
+  el.outerHTML = rowHTML(L);
+  if(focusSel){ const f = document.querySelector(focusSel); if(f){ f.focus(); const v = f.value.length; try{ f.setSelectionRange(v, v); }catch(_){} } }
+  refresh();
+}
+function rerenderCard(n){
+  if(cur().step === 4) return rerenderRow(lineOf(n));
+  renderStep(); refresh();
+}
+
+document.addEventListener("input", e => {
+  const t = e.target, s = cur();
+  if(t.dataset.s){
+    let v = t.value;
+    if(t.dataset.s === "introPhone"){ v = fmtPhone(v); t.value = v; }
+    s[t.dataset.s] = v; save();
+    if(t.dataset.s === "intro"){
+      const sy = document.querySelector("#bookSay");
+      if(sy) sy.innerHTML = `<small>Say this on the phone</small>` + bookScript().map(l => `<p>${esc(l)}</p>`).join("");
+      const cb = document.querySelector("[data-call]");
+      if(cb) cb.textContent = `Call ${introName()}`;
+      refresh();
+    } else renderNav();
+    return;
+  }
+  if(t.dataset.me){ db.me[t.dataset.me] = t.value; save(); t.classList.toggle("miss", !t.value.trim()); renderNav(); return; }
+  if(t.dataset.jl){
+    const L = JOG_LINES.find(x => x.ln === t.dataset.jl), n = blankName();
+    n.line = L.ln; n.door = L.door; n.type = L.sec === "team" ? "team" : L.sec === "life" ? "client" : ""; n.name = t.value; n.because = defaultBecause(n);
+    cur().names.push(n); save();
+    rerenderRow(L.ln, `[data-jn="${n.id}"]`); return;
+  }
+  if(t.dataset.jn){
+    const n = nameById(t.dataset.jn);
+    n.name = t.value; n.script = null; n.reply = null; save(); syncCard(n); refresh(); return;
+  }
+  if(t.dataset.n){
+    const n = nameById(t.dataset.id);
+    if(t.dataset.n === "phone") t.value = fmtPhone(t.value);
+    n[t.dataset.n] = t.value; n.script = null; n.reply = null; n.sCallAfter = null; n.sTextForgot = null; n.sCallForgot = null;
+    if(t.dataset.n === "relOther") n.rel = t.value.trim() ? "other" : "";
+    save();
+    if(["name","by","relOther"].includes(t.dataset.n)) t.classList.toggle("miss", !t.value.trim());
+    if(t.dataset.n === "phone") t.classList.toggle("miss", !phoneOk(n));
+    syncCard(n); refresh(); return;
+  }
+  if(t.dataset.sx){
+    const [k, id] = t.dataset.sx.split(":"), n = nameById(id), field = SX[k][0], was = n[field] != null;
+    n[field] = t.value; save();
+    if(!was){ const acts = t.nextElementSibling, st = acts && acts.querySelector(".status"); if(st) st.outerHTML = `<button class="btn small" data-sxreset="${t.dataset.sx}">Undo my edits</button>`; }
+    return;
+  }
+  if(t.dataset.script){ nameById(t.dataset.script).script = t.value; save(); return; }
+  if(t.dataset.reply){ nameById(t.dataset.reply).reply = t.value; save(); return; }
+});
+// story card on step 3 updates the read-out card when you leave the box
+document.addEventListener("change", e => { if(e.target.dataset.me === "story" && cur().step === 3) renderStep(); });
+
+$("#sessions").onchange = e => { db.current = e.target.value; jog = null; save(); renderAll(); };
+$("#newSession").onclick = () => {
+  const s = blankSession(); db.sessions.push(s); db.current = s.id; jog = null; save(); renderAll();
+  const el = $("#intro"); if(el) el.focus(); toast("New introducer");
+};
+
+/* ---------- your info ---------- */
+const ME_FIELDS = {meName:"name", mePron:"pron", meRole:"role", mePartner:"partner", meFirm:"firm", meA:"a", meB:"b", meStory:"story"};
+function openMe(){ for(const [id,k] of Object.entries(ME_FIELDS)) $("#"+id).value = db.me[k] ?? ""; $("#meModal").classList.add("show"); $("#meName").focus(); }
+$("#settings").onclick = openMe;
+$("#meSave").onclick = () => {
+  if(!$("#meName").value.trim()){ $("#meName").classList.add("miss"); $("#meName").focus(); return toast("Add your name"); }
+  for(const [id,k] of Object.entries(ME_FIELDS)) db.me[k] = $("#"+id).value;
+  try{ localStorage.setItem(KEY, JSON.stringify(db)); }catch(e){}
+  $("#meModal").classList.remove("show"); renderAll(); toast("Saved");
+};
+$("#meModal").addEventListener("click", e => { if(e.target.id === "meModal" && db.me.name.trim()) $("#meModal").classList.remove("show"); });
+
+/* ---------- export ---------- */
+function downloadCSV(){
+  const rn = readyNames(); if(!rn.length) return toast("No names yet");
+  const q = v => `"${String(v ?? "").replace(/"/g,'""')}"`;
+  const head = ["Name","Phone","Client or teammate","Knows introducer as","Why now","Introduced by","Group text landed","Replied","They answered","Booked","In BSC Pro"];
+  const rows = rn.map(n => [n.name, n.phone, TYPE[n.type], n.rel === "other" ? n.relOther : n.rel, (DOOR[n.door]||{}).label, cur().intro,
+    n.landedAt ? new Date(n.landedAt).toLocaleString() : "", n.replied?"yes":"", n.answered?"yes":"", n.booked?"yes":"", n.bsc?"yes":""]);
+  const blob = new Blob([[head, ...rows].map(r => r.map(q).join(",")).join("\n")], {type:"text/csv"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `introductions-${(cur().intro || "list").toLowerCase().replace(/[^a-z0-9]+/g,"-")}.csv`; a.click(); URL.revokeObjectURL(a.href);
+}
+function copyList(){
+  const rn = readyNames(); if(!rn.length) return toast("No names yet");
+  copy(`Introductions from ${cur().intro}\n\n` + rn.map((n,i) => `${i+1}. ${n.name}${n.phone?"  "+n.phone:""}\n   ${TYPE[n.type]} / ${meetLabel(n)} / ${(DOOR[n.door]||{}).label}`).join("\n"));
+}
+
+renderAll();
+if(!db.me.name.trim()) openMe();
+</script>
+</body>
+</html>
