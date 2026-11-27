@@ -496,10 +496,24 @@ function meetLabel(n){
 }
 function whoLine(partnerDoor){
   const p = P(), me = db.me;
-  const firm = partnerDoor ? "that is expanding and looking for good people."
-             : endDot(me.firm.trim() || "that teaches families how money works.");
+  const firm = partnerDoor ? "that is expanding and looking for good people." : firmPhrase(me.firm);
   if(me.partner.trim() && me.role) return `${p.He}'s a financial professional, and ${p.he} and ${p.his} ${me.role} ${me.partner.trim()} own a firm ${firm}`;
   return `${p.He}'s a financial professional with a firm ${firm}`;
+}
+/* "Teaches families how money works" reads as "own a firm that teaches families how money works." */
+function firmPhrase(s){
+  s = String(s||"").trim();
+  if(!s) return "that teaches families how money works.";
+  if(/^[A-Z][a-z]+\b/.test(s)) s = s[0].toLowerCase() + s.slice(1);
+  if(/^[a-z]+s\b/.test(s) && !/^(that|this|its|us)\b/.test(s)) s = "that " + s;
+  return endDot(s);
+}
+/* the intro's own wife or husband: no life event guess, the text is about "us" */
+function isSpouse(n){ return n.type !== "team" && /^(my\s+)?(wife|husband|spouse)$/i.test(relText(n).trim()); }
+/* "More about them" goes into the text, word for word */
+function aboutLine(n){
+  const h = String(n.hot || n.note || "").trim().replace(/\s*\n+\s*/g, " ");
+  return h ? ` A little about ${first(n.name) || "them"}: ${endDot(h)}` : "";
 }
 /* "they" means you and your spouse; with no spouse in the firm it turns into he or she */
 function soloize(s){
@@ -521,23 +535,26 @@ function defaultBecause(n){
 }
 function buildScript(n){
   const d = DOOR[n.door] || DOOR.other, p = P(), f = first(n.name) || "[Name]";
-  const note = n.note.trim() ? endDot(n.note) + " " : "";
+  const about = aboutLine(n);
   const because = endDot(fill(n.because.trim() || defaultBecause(n))) || "[why you thought of them].";
   const td = d.type === "team", both = n.type === "both";
   if(n.type === "team" || (both && td)){
     const fam = both ? `${p.He}'s also a great resource for families. ` : "";
-    return `Hey ${f}! I want you to meet my friend ${meFull()}. ${whoLine(true)} I'm connecting you two because ${soloize(because)} ${fam}${meFirst()}, meet ${meetLabel(n)}. ${note}I'll let you two take it from here!`;
+    return `Hey ${f}! I want you to meet my friend ${meFull()}. ${whoLine(true)} I'm connecting you two because ${soloize(because)} ${fam}${meFirst()}, meet ${meetLabel(n)}.${about} I'll let you two take it from here!`;
   }
-  const open = d.open ? d.open + " " : "";
   const firmThey = db.me.partner.trim() && db.me.role ? "They're" : `${p.He}'s`;
   const grow = both ? ` ${firmThey} also expanding and looking for good people, so you two should talk.` : "";
-  return `Hi ${f}! ${open}I want to introduce you to my friend ${meFull()}. ${whoLine(false)} I'm connecting you because ${because} ${p.He}'d be a great resource for you${d.both ? " both" : ""}.${grow} ${meFirst()}, meet ${meetLabel(n)}.${note ? " " + note.trim() : ""}`;
+  if(isSpouse(n))
+    return `Hi ${f}! I want to introduce you to my friend ${meFull()}. ${whoLine(false)} I'm connecting you because I want us to have a real plan for our family's money, and ${p.he}'d be a great resource for us.${grow} ${meFirst()}, meet ${meetLabel(n)}.${about}`;
+  const open = d.open ? d.open + " " : "";
+  return `Hi ${f}! ${open}I want to introduce you to my friend ${meFull()}. ${whoLine(false)} I'm connecting you because ${because} ${p.He}'d be a great resource for you${d.both ? " both" : ""}.${grow} ${meFirst()}, meet ${meetLabel(n)}.${about}`;
 }
 function scriptOf(n){ return n.script ?? buildScript(n); }
 function buildReply(n){
   const d = DOOR[n.door] || DOOR.other;
   const a = db.me.a.trim() || "a quick call Tuesday evening", b = db.me.b.trim() || "Thursday evening";
-  return `Thanks, ${introName()}! ${first(n.name)}, great to meet you. ${fill(d.reply)} What's better for you, ${a} or ${b}?`;
+  const r = isSpouse(n) ? `${introName()} speaks so highly of you. I'd love to get to know you both.` : fill(d.reply);
+  return `Thanks, ${introName()}! ${first(n.name)}, great to meet you. ${r} What's better for you, ${a} or ${b}?`;
 }
 function replyOf(n){ return n.reply ?? buildReply(n); }
 
@@ -549,7 +566,7 @@ const WHY_SHORT = {
   t_lead:"you're a natural leader", t_capped:"you're great at what you do and ready for something more", t_new:"you're sharp and just getting started"
 };
 function timesAB(){ return [db.me.a.trim() || "Tuesday evening", db.me.b.trim() || "Thursday evening"]; }
-function whyShort(n){ return fill(WHY_SHORT[n.door] || "you came straight to mind"); }
+function whyShort(n){ if(isSpouse(n)) return `${introName()} wants the two of you to have a real plan for your family`; return fill(WHY_SHORT[n.door] || "you came straight to mind"); }
 function callBody(n, open){
   const I = introName(), [a,b] = timesAB(), team = n.type === "team";
   return [
@@ -864,10 +881,17 @@ function bodyHTML(n){
     <input class="in${relText(n).trim()?"":" miss"}" data-n="relOther" data-id="${n.id}" value="${esc(relText(n))}" placeholder="sister, coworker, neighbor" autocomplete="off">
 
     <label class="f">More about them</label>
-    <textarea class="in" data-n="hot" data-id="${n.id}" placeholder="Nurse at WakeMed. Two kids. Wants to retire early." style="min-height:60px">${esc(n.hot)}</textarea>
+    <textarea class="in" data-n="hot" data-id="${n.id}" placeholder="Nurse at WakeMed. Two kids." style="min-height:60px">${esc(n.hot)}</textarea>
+    <p class="soft">This goes in the group text word for word. Write only what's fine for ${F} to read.</p>
 
     <label class="f">Client or business partner?</label>
     <div class="chips">${chip("type","client","Client")}${chip("type","team","Business partner")}</div>
+
+    <div data-doors="${n.id}"${n.type && !isSpouse(n) ? "" : ' style="display:none"'}>
+      <label class="f">${team ? "Why them?" : "What's going on with them?"}</label>
+      <div class="chips">${DOORS.filter(d => (d.type === "team") === team).map(d =>
+        `<button class="chip${n.door === d.k ? " on" : ""}" data-door="${d.k}" data-id="${n.id}">${d.k === "other" ? "Nothing new" : esc(d.label)}</button>`).join("")}</div>
+    </div>
 
     <label class="f">Their number</label>
     <p class="line">Say: "What's the best number for ${F}? I won't reach out without your permission."</p>
@@ -1009,7 +1033,7 @@ document.addEventListener("click", e => {
     if(n.type !== k){
       const prevDef = defaultBecause(n);
       n.type = k;
-      if(!n.door || lineOf(n) === "other") n.door = k === "team" ? "t_other" : "other";
+      if(!n.door || lineOf(n) === "other" || ((DOOR[n.door].type === "team") !== (k === "team"))) n.door = k === "team" ? "t_other" : "other";
       if(!n.because.trim() || n.because === prevDef) n.because = defaultBecause(n);
     }
     n.script = null; n.reply = null; save(); rerenderCard(n); return;
@@ -1042,7 +1066,7 @@ document.addEventListener("click", e => {
   const dr = t.closest("[data-door]");
   if(dr){
     const n = nameById(dr.dataset.id), k = dr.dataset.door;
-    if(n.door === k){ n.door = ""; }
+    if(n.door === k) return;
     else{
       const prev = DOOR[n.door];
       if(!n.because.trim() || (prev && n.because === fill(prev.because))) n.because = fill(DOOR[k].because);
@@ -1083,6 +1107,7 @@ function syncCard(n){
   const pb = card.querySelector("[data-pillb]");
   if(pb) pb.style.display = ready ? "" : "none";
   const pv = card.querySelector("[data-preview]"); if(pv) pv.textContent = scriptOf(n);
+  const dd = card.querySelector("[data-doors]"); if(dd) dd.style.display = n.type && !isSpouse(n) ? "" : "none";
   card.querySelectorAll("[data-fname]").forEach(x => x.textContent = first(n.name) || "them");
 }
 function rerenderRow(ln, focusSel){
